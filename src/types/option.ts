@@ -1,1 +1,1 @@
-export type Options = { id: string; label: string };
+export type Option = { id: string; label: string };
