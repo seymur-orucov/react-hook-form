@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import {
   Form,
   SubmitHandler,
@@ -8,18 +8,19 @@ import {
 } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
+import {MultiSelect} from "@/components/ui/customSelect.tsx";
 
-import {
-  // Button,
-  Container,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  ListSubheader,
-  Stack,
-  Typography,
-} from "@mui/material";
+// import {
+//   Button,
+//   Container,
+//   List,
+//   ListItem,
+//   ListItemButton,
+//   ListItemText,
+//   ListSubheader,
+//   Stack,
+//   Typography,
+// } from "@mui/material";
 
 import { defaultValues, Schema } from "../types/schema.ts";
 import {
@@ -139,6 +140,7 @@ export function Users() {
           <h2>User</h2>
           <CustomFormField<Schema> name="name" label="Name" />
           <CustomFormField<Schema> name="email" label="Email" />
+          <MultiSelect options={statesQuery.data} onChange={(item) => console.log(item)} />
         </div>
       </form>
     </Form>
