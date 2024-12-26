@@ -1,13 +1,16 @@
 import { Fragment, useEffect } from "react";
 import {
+  Form,
   SubmitHandler,
   useFieldArray,
   useFormContext,
   useWatch,
 } from "react-hook-form";
 
+import { Button } from "../../components/core/button";
+
 import {
-  Button,
+  // Button,
   Container,
   List,
   ListItem,
@@ -46,56 +49,58 @@ export function Users() {
   const skillsQuery = useSkills();
   const usersQuery = useUsers();
 
-  const {
-    register,
-    formState: { errors },
-    watch,
-    control,
-    unregister,
-    reset,
-    setValue,
-    handleSubmit,
-  } = useFormContext<Schema>();
+  // const {
+  //   register,
+  //   formState: { errors },
+  //   watch,
+  //   control,
+  //   unregister,
+  //   reset,
+  //   setValue,
+  //   handleSubmit,
+  // } = useFormContext<Schema>();
 
-  const id = useWatch({ control: control, name: "id" });
-  const variant = useWatch({ control: control, name: "variant" });
+  const form = useFormContext<Schema>();
+
+  const id = useWatch({ control: form.control, name: "id" });
+  const variant = useWatch({ control: form.control, name: "variant" });
 
   const userQuery = useUser(id);
 
   useEffect(() => {
-    const sub = watch((value) => {
+    const sub = form.watch((value) => {
       console.log(value);
     });
 
     return () => sub.unsubscribe();
-  }, [watch]);
+  }, [form.watch]);
 
-  const isTeacher = useWatch({ control: control, name: "isTeacher" });
+  const isTeacher = useWatch({ control: form.control, name: "isTeacher" });
 
   const { fields, append, remove, replace } = useFieldArray({
-    control: control,
+    control: form.control,
     name: "students",
   });
 
   const handleUserClick = (id: string) => {
-    setValue("id", id);
+    form.setValue("id", id);
   };
 
   useEffect(() => {
     if (!isTeacher) {
       replace([]);
-      unregister("students");
+      form.unregister("students");
     }
-  }, [isTeacher, replace, unregister]);
+  }, [isTeacher, replace, form.unregister]);
 
   useEffect(() => {
     if (userQuery.data) {
-      reset(userQuery.data);
+      form.reset(userQuery.data);
     }
-  }, [reset, userQuery.data]);
+  }, [form.reset, userQuery.data]);
 
   const handleReset = () => {
-    reset(defaultValues);
+    form.reset(defaultValues);
   };
 
   const createUserMutation = useCreateUser();
@@ -110,7 +115,11 @@ export function Users() {
   };
 
   return (
-    <Container maxWidth="sm" component="form" onSubmit={handleSubmit(onSubmit)}>
+    <Container
+      maxWidth="sm"
+      component="form"
+      onSubmit={form.handleSubmit(onSubmit)}
+    >
       <Stack sx={{ flexDirection: "row", gap: 2 }}>
         <List subheader={<ListSubheader>Users</ListSubheader>}>
           {usersQuery.data?.map((user) => (
@@ -127,61 +136,74 @@ export function Users() {
 
         <Stack>
           <Stack sx={{ gap: 2 }}>
-            <CustomTextField<Schema> name="name" label="Name" />
-            <CustomTextField<Schema> name="email" label="Email" />
-            <CustomAutocomplete<Schema>
-              name="states"
-              label="States"
-              options={statesQuery.data}
-            />
-            <CustomToggleButtonGroup<Schema>
-              name="languagesSpoken"
-              options={languagesQuery.data}
-            />
-            <CustomRadioGroup<Schema>
-              name="gender"
-              options={gendersQuery.data}
-              label="Gender"
-            />
-            <CustomCheckbox<Schema>
-              name="skills"
-              options={skillsQuery.data}
-              label="Skills"
-            />
-            <CustomDateTimePicker<Schema>
-              name="registrationDateAndTime"
-              label="Registration Date & Time"
-            />
-            <Typography>Former Employment Period:</Typography>
-            <CustomDateRangePicker<Schema> name="formerEmploymentPeriod" />
-            <CustomSlider<Schema> name="salaryRange" label="Salary Range" />
-            <CustomSwitch<Schema> name="isTeacher" label="Are you a teacher?" />
+            <Form>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-8 max-w-3xl mx-auto py-10"
+              >
+                <CustomTextField<Schema> name="name" label="Name" />
+                <CustomTextField<Schema> name="email" label="Email" />
+                <CustomAutocomplete<Schema>
+                  name="states"
+                  label="States"
+                  options={statesQuery.data}
+                />
+                <CustomToggleButtonGroup<Schema>
+                  name="languagesSpoken"
+                  options={languagesQuery.data}
+                />
+                <CustomRadioGroup<Schema>
+                  name="gender"
+                  options={gendersQuery.data}
+                  label="Gender"
+                />
+                <CustomCheckbox<Schema>
+                  name="skills"
+                  options={skillsQuery.data}
+                  label="Skills"
+                />
+                <CustomDateTimePicker<Schema>
+                  name="registrationDateAndTime"
+                  label="Registration Date & Time"
+                />
+                <Typography>Former Employment Period:</Typography>
+                <CustomDateRangePicker<Schema> name="formerEmploymentPeriod" />
+                <CustomSlider<Schema> name="salaryRange" label="Salary Range" />
+                <CustomSwitch<Schema>
+                  name="isTeacher"
+                  label="Are you a teacher?"
+                />
 
-            {isTeacher && (
-              <Button onClick={() => append({ name: "" })} type="button">
-                Add new student
-              </Button>
-            )}
+                {isTeacher && (
+                  <Button onClick={() => append({ name: "" })} type="button">
+                    Add new student
+                  </Button>
+                )}
 
-            {fields.map((field, index) => (
-              <Fragment key={field.id}>
-                <CustomTextField name={`students.${index}.name`} label="Name" />
-                <Button
-                  type="button"
-                  color="error"
-                  onClick={() => remove(index)}
-                >
-                  Remove
-                </Button>
-              </Fragment>
-            ))}
+                {fields.map((field, index) => (
+                  <Fragment key={field.id}>
+                    <CustomTextField
+                      name={`students.${index}.name`}
+                      label="Name"
+                    />
+                    <Button
+                      type="button"
+                      color="error"
+                      onClick={() => remove(index)}
+                    >
+                      Remove
+                    </Button>
+                  </Fragment>
+                ))}
+              </form>
+            </Form>
           </Stack>
 
           <Stack sx={{ flexDirection: "row", justifyContent: "space-between" }}>
-            <Button variant="contained" type="submit">
+            <Button variant="default" type="submit">
               {variant === "create" ? "New user" : "Edit user"}
             </Button>
-            <Button variant="outlined" onClick={handleReset}>
+            <Button variant="secondary" onClick={handleReset}>
               Reset
             </Button>
           </Stack>

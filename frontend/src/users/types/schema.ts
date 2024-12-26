@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { patterns } from "../../constants.ts";
+import { patterns } from "@/constants.ts";
 
 export const schema = z
   .intersection(
@@ -11,7 +11,8 @@ export const schema = z
         .refine((text: string) => patterns.email.test(text), {
           message: "Email not valid",
         }),
-      states: z.array(z.string().min(1).max(2)),
+      states: z.string().min(1).max(2),
+      // states: z.array(z.string().min(1).max(2)),
       languagesSpoken: z.array(z.string()),
       gender: z.string().min(1),
       skills: z.array(z.string()).max(2),
@@ -43,7 +44,7 @@ export const defaultValues: Schema = {
   variant: "create",
   email: "",
   name: "",
-  states: [],
+  states: "",
   languagesSpoken: [],
   gender: "",
   skills: [],

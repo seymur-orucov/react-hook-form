@@ -13,7 +13,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/core/select";
+} from "@/components/core/select.tsx";
 
 interface Props<T extends FieldValues> {
   name: Path<T>;

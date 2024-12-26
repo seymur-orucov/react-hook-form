@@ -1,28 +1,46 @@
-import { Controller, FieldValues, Path, useFormContext } from "react-hook-form";
-import { TextField, TextFieldProps } from "@mui/material";
+import { FieldValues, Path, useFormContext } from "react-hook-form";
 
-type Props<T extends FieldValues> = {
+import { FormField, FormMessage } from "./core/form";
+import { FormItem, FormLabel, FormControl } from "@/components/core/form";
+import { Input } from "./core/input";
+
+interface Props<T extends FieldValues> {
   name: Path<T>;
-} & Pick<TextFieldProps, "label">;
+  label: string;
+}
 
 export function CustomTextField<T extends FieldValues>({
   name,
-  ...props
+  label,
 }: Props<T>) {
   const { control } = useFormContext<T>();
 
   return (
-    <Controller
+    <FormField
       control={control}
       name={name}
-      render={({ field, fieldState: { error } }) => (
-        <TextField
-          {...field}
-          {...props}
-          error={!!error}
-          helperText={error?.message}
-        />
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>{label}</FormLabel>
+          <FormControl>
+            <Input placeholder="shadcn" type="" {...field} />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
       )}
     />
+
+    // <Controller
+    //   control={control}
+    //   name={name}
+    //   render={({ field, fieldState: { error } }) => (
+    //     <TextField
+    //       {...field}
+    //       {...props}
+    //       error={!!error}
+    //       helperText={error?.message}
+    //     />
+    //   )}
+    // />
   );
 }

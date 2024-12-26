@@ -11,7 +11,7 @@ import {
 
 type Props<T extends FieldValues> = {
   name: Path<T>;
-  options: Option[];
+  options?: Option[];
 };
 
 export function CustomToggleButtonGroup<T extends FieldValues>({
