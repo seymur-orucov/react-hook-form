@@ -10,12 +10,12 @@ type Edit = {
 export type ApiCommon = {
   email: string;
   name: string;
-  states: string[];
+  states: string;
   gender: string;
   languagesSpoken: string[];
   skills: string[];
-  registrationDateAndTime: string;
-  formerEmploymentPeriod: [string, string];
+  registrationDateAndTime: string | undefined;
+  formerEmploymentPeriod: { from: string | null; to: string | null } | null;
   salaryRange: [number, number];
   isTeacher: boolean;
   students: {

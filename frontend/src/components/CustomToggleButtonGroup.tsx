@@ -9,14 +9,16 @@ import {
   FormMessage,
 } from "@/components/core/form.tsx";
 
-type Props<T extends FieldValues> = {
+interface Props<T extends FieldValues> {
   name: Path<T>;
   options: Option[];
-};
+  label: string;
+}
 
 export function CustomToggleButtonGroup<T extends FieldValues>({
   name,
   options,
+  label,
 }: Props<T>) {
   const { control } = useFormContext<T>();
 
@@ -26,7 +28,7 @@ export function CustomToggleButtonGroup<T extends FieldValues>({
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Font Size</FormLabel>
+          <FormLabel>{label}</FormLabel>
           <FormControl>
             <Controller
               name={field.name}
@@ -37,6 +39,7 @@ export function CustomToggleButtonGroup<T extends FieldValues>({
                   onValueChange={field.onChange}
                   value={field.value}
                   variant="default"
+                  className="justify-start"
                 >
                   {options?.map((option) => (
                     <ToggleGroupItem value={option.id}>

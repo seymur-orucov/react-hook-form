@@ -1,19 +1,13 @@
 import { FieldValues, Path, useFormContext } from "react-hook-form";
 import { Option } from "../types/option.ts";
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/core/form.tsx";
-import { Checkbox } from "@/components/core/checkbox.tsx";
+import {FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/core/form.tsx";
+import {Checkbox} from "@/components/core/checkbox.tsx";
 
 interface Props<T extends FieldValues> {
   name: Path<T>;
   options?: Option[];
   label: string;
-}
+};
 
 export function CustomCheckbox<T extends FieldValues>({
   name,
@@ -23,6 +17,7 @@ export function CustomCheckbox<T extends FieldValues>({
   const { control } = useFormContext<T>();
 
   return (
+
     <FormField
       control={control}
       name={name}
@@ -42,14 +37,14 @@ export function CustomCheckbox<T extends FieldValues>({
                   onCheckedChange={(checked) => {
                     const updatedSkills = checked
                       ? [...field.value, option.id]
-                      : field.value?.filter(
-                          (value: string) => value !== option.id
-                        );
+                      : field.value?.filter((value: string) => value !== option.id);
                     field.onChange(updatedSkills);
                   }}
                 />
               </FormControl>
-              <FormLabel className="font-normal">{option.label}</FormLabel>
+              <FormLabel className="font-normal">
+                {option.label}
+              </FormLabel>
             </FormItem>
           ))}
           <FormMessage />

@@ -150,6 +150,7 @@ export function Users() {
                 />
                 <CustomToggleButtonGroup<Schema>
                   name="languagesSpoken"
+                  label="Languages"
                   options={languagesQuery.data}
                 />
                 <CustomRadioGroup<Schema>
@@ -167,7 +168,10 @@ export function Users() {
                   label="Registration Date & Time"
                 />
                 <Typography>Former Employment Period:</Typography>
-                <CustomDateRangePicker<Schema> name="formerEmploymentPeriod" />
+                <CustomDateRangePicker<Schema>
+                  name="formerEmploymentPeriod"
+                  label="Former Employment Period:"
+                />
                 <CustomSlider<Schema> name="salaryRange" label="Salary Range" />
                 <CustomSwitch<Schema>
                   name="isTeacher"

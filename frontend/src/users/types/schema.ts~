@@ -16,13 +16,11 @@ export const schema = z
       languagesSpoken: z.array(z.string()),
       gender: z.string().min(1),
       skills: z.array(z.string()).max(2),
-      registrationDateAndTime: z.date().nullable(),
-      formerEmploymentPeriod: z
-        .object({
-          from: z.date().nullable(),
-          to: z.date().nullable(),
-        })
-        .nullable(),
+      registrationDateAndTime: z.union([z.date(), z.literal("")]),
+      formerEmploymentPeriod: z.object({
+        from: z.union([z.date(), z.literal("")]),
+        to: z.union([z.date(), z.literal("")]),
+      }),
       // formerEmploymentPeriod: z.array(z.date()).min(2).max(2),
       salaryRange: z.array(z.number()).min(2).max(2),
       isTeacher: z.boolean(),
@@ -54,8 +52,8 @@ export const defaultValues: Schema = {
   languagesSpoken: [],
   gender: "",
   skills: [],
-  registrationDateAndTime: null,
-  formerEmploymentPeriod: { from: null, to: null },
+  registrationDateAndTime: "",
+  formerEmploymentPeriod: { from: "", to: "" },
   salaryRange: [0, 2000],
   isTeacher: false,
 };

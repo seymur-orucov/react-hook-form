@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d5c3d1c-342f-4ade-b539-80e61c23cadf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/customSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/customSelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CustomCheckbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CustomCheckbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CustomDateRangePicker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CustomDateRangePicker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CustomDateTimePicker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CustomDateTimePicker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CustomRadioGroup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CustomRadioGroup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CustomToggleButtonGroup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CustomToggleButtonGroup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/users/components/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/users/components/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/users/types/apiTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/users/types/apiTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/users/types/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/users/types/schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/users/utils/mapData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/users/utils/mapData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,32 +27,34 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2qf4n5KbEuPByABe9bJbSPM9wb5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.codeium.enabled": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Self study/react-hook-form",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "npm.start.executor": "Run",
-    "ts.external.directory.path": "C:\\Self study\\react-hook-form\\frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/shadcn&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Self study/react-hook-form&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\seymur.o\\AppData\\Roaming\\npm\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Self study\\react-hook-form\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="npm.start">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/frontend/package.json" />
@@ -72,7 +86,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23726.96" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.24807.6" />
       </set>
     </attachedChunks>
   </component>
@@ -85,6 +99,11 @@
       <option name="presentableId" value="Default" />
       <updated>1735040459773</updated>
       <workItem from="1735040460994" duration="3930000" />
+      <workItem from="1735194855435" duration="3425000" />
+      <workItem from="1735199660951" duration="448000" />
+      <workItem from="1735200128497" duration="11115000" />
+      <workItem from="1735281255415" duration="16570000" />
+      <workItem from="1735364840532" duration="2003000" />
     </task>
     <servers />
   </component>
